@@ -27,4 +27,13 @@ public class Plane {
     public int passengerCount() {
         return this.passengers.size();
     }
+
+    public void addPassenger(Passenger passenger) {
+        if ( passengerCount() < planeType.getCapacity())
+        this.passengers.add(passenger);
+    }
+
+    public void removePassenger(Passenger passenger) {
+        this.passengers.remove(passenger);
+    }
 }
