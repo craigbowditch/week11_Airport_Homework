@@ -27,4 +27,13 @@ public class Hangar {
         return this.planes.remove(this.planes.indexOf(plane));
 
     }
+
+    public boolean containsPlane(Plane selectedPlane) {
+        for (Plane plane : planes) {
+            if (plane == selectedPlane) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
