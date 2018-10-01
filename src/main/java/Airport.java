@@ -53,5 +53,11 @@ public class Airport {
     public void createBooking(Flight flight, Passenger passenger) {
         Booking newBooking = new Booking(flight, passenger);
         this.bookings.add(newBooking);
+        sellTicket(flight);
     }
+
+    public void sellTicket(Flight flight) {
+        flight.addTicket();
+    }
+
 }

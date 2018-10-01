@@ -28,4 +28,10 @@ public class FlightTest {
     public void hasDestination() {
         assertEquals(AirportCode.JFK, flight.getDestination());
     }
+
+    @Test
+    public void canAddToTicketCount() {
+        flight.addTicket();
+        assertEquals(1, flight.getTicketCount());
+    }
 }

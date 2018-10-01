@@ -18,6 +18,7 @@ public class AirportTest {
         plane = new Plane(PlaneType.BOEING747, Airline.BRITISHAIRWAYS);
         hangar = new Hangar("hangar 1");
         passenger = new Passenger("Smith");
+        flight = new Flight(plane, "BA99", AirportCode.LHR);
 
     }
 
@@ -65,5 +66,12 @@ public class AirportTest {
     public void canMakeBooking() {
         airport.createBooking(flight, passenger);
         assertEquals(1, airport.bookingsCount());
+        assertEquals(1, flight.getTicketCount());
+    }
+
+    @Test
+    public void canSellTicket() {
+        airport.sellTicket(flight);
+        assertEquals(1, flight.getTicketCount());
     }
 }
