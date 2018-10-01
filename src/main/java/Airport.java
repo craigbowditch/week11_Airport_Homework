@@ -5,12 +5,14 @@ public class Airport {
     private ArrayList<Hangar> hangars;
     private ArrayList<Flight> flights;
     private AirportCode airportCode;
+    private ArrayList<Booking> bookings;
 
 
     public Airport(AirportCode airportCode) {
         this.hangars = new ArrayList<>();
         this.flights = new ArrayList<>();
         this.airportCode = airportCode;
+        this.bookings = new ArrayList<>();
     }
 
     public AirportCode getAirportCode() {
@@ -41,5 +43,15 @@ public class Airport {
                 hangars.get(i).removePlane(selectedPlane);
             }
         }
+    }
+
+    public int bookingsCount() {
+        return this.bookings.size();
+    }
+
+
+    public void createBooking(Flight flight, Passenger passenger) {
+        Booking newBooking = new Booking(flight, passenger);
+        this.bookings.add(newBooking);
     }
 }

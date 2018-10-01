@@ -9,12 +9,15 @@ public class AirportTest {
     private Flight flight;
     private Plane plane;
     private Hangar hangar;
+    private Booking booking;
+    private Passenger passenger;
 
     @Before
     public void before(){
         airport = new Airport(AirportCode.GLA);
         plane = new Plane(PlaneType.BOEING747, Airline.BRITISHAIRWAYS);
         hangar = new Hangar("hangar 1");
+        passenger = new Passenger("Smith");
 
     }
 
@@ -51,5 +54,16 @@ public class AirportTest {
         airport.assignPlaneFromHangar(plane);
         assert(!hangar.containsPlane(plane));
 
+    }
+
+    @Test
+    public void bookingsStartEmpty() {
+        assertEquals(0, airport.bookingsCount());
+    }
+
+    @Test
+    public void canMakeBooking() {
+        airport.createBooking(flight, passenger);
+        assertEquals(1, airport.bookingsCount());
     }
 }
